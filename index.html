@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON to PHP Array</title>
+</head>
+<body>
+    <h1>JSON to PHP Array</h1>
+    <div>
+        <p>
+            Convert a JSON object into a PHP array.
+        </p>
+    </div>
+
+    <form action="#" id="form">
+        <table>
+            <tr>
+                <td><textarea placeholder="write / paste your JSON here" class="" rows="30" cols="75" id="input"></textarea></td>
+                <td><textarea class="" rows="30" cols="75" id="output"></textarea></td>
+            </tr>
+        </table>
+
+        <label for="arrayStyle">Array Format</label>
+        <select id="arrayStyle" class="">
+            <option value="5.4">5.4+ []</option>
+            <option value="5.3">5.3- array()</option>
+        </select>
+
+        <label for="tabStyle">Tab</label>
+        <select id="tabStyle" class="">
+            <option value="\t">\t</option>
+            <option value=" ">1 space</option>
+            <option value="  ">2 spaces</option>
+            <option value="   ">3 spaces</option>
+            <option value="    " selected>4 spaces</option>
+        </select>
+
+        <button class="" id=go type="submit">Go</button>
+        <button class="" type="reset">Clear</button>
+    </form>
+
+    <script src="source.js" type="application/javascript"></script>
+    <script type="application/javascript">
+        JSONtoArray();
+    </script>
+</body>
+</html>
