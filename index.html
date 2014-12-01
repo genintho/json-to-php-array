@@ -1,44 +1,149 @@
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>JSON to PHP Array</title>
+    <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+    <style>
+        /* Prettify by Shawn Borton http://shawnborton.net/ */
+        * {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body, html {
+            font-family: 'Karla', sans-serif;
+            background:#f8f8f8;
+            color:#404040;
+        }
+
+        .body {
+            max-width: 1000px;
+            width:95%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        textarea {
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width:100%;
+            border:none;
+            border-left: 6px solid #EEE;
+            resize: vertical;
+            border-radius: 2px;
+            font-family: "Menlo", "Lucida Console", Monaco, monospace;
+            padding: 15px;
+            font-size: 13px;
+        }
+
+        textarea:focus {
+            outline:none;
+            border-color:#CCC;
+        }
+
+        select {
+            border-radius: 3px;
+            display: inline-block;
+            height: 34px;
+            line-height: 32px;
+            border: 1px solid #DDD;
+            padding: 4px;
+            color: #555;
+            min-width: 140px;
+            font-size: 13px;
+        }
+
+        select:focus {
+            outline:none;
+        }
+
+        .marginRight10 {
+            margin: 0 10px 0 0;
+        }
+
+        button {
+            -webkit-appearance: none;
+            border-radius: 3px;
+            font-family: 'Karla', sans-serif;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width:100px;
+            height:32px;
+            text-align: center;
+            border:none;
+            font-size: 13px;
+            background:#2ecc71;
+            color:#FFF;
+            cursor: pointer;
+        }
+
+        button:focus {
+            outline:none;
+            background:#27ae60;
+        }
+        
+        button:hover {
+            background:#27ae60;
+        }
+
+        .button-clear {
+            border:1px solid #e74c3c;
+            background:none;
+            color:#c0392b;
+        }
+
+        .button-clear:hover {
+            color:#FFF;
+            background:#e74c3c;
+        }
+
+        table {
+            width:100%;
+        }
+
+        table td {
+            vertical-align: top;
+        }
+    </style>
 </head>
 <body>
 <a href="https://github.com/genintho/json-to-php-array"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
-    <h1>JSON to PHP Array</h1>
-    <div>
-        <p>
-            Convert a JSON object into a PHP array.
-        </p>
+    <div class="body">
+        <h1>JSON to PHP Array</h1>
+        <div>
+            <p>
+                Convert a JSON object into a PHP array.
+            </p>
+        </div>
+    
+        <form action="#" id="form">
+            <table cellspacing="10">
+                <tr>
+                    <td width="50%"><textarea placeholder="Write / paste your JSON here" class="" rows="30" cols="75" id="input"></textarea></td>
+                    <td width="50%"><textarea class="" rows="30" cols="75" id="output"></textarea></td>
+                </tr>
+            </table>
+    
+            <label for="arrayStyle">Array Format</label>
+            <select id="arrayStyle" class="marginRight10">
+                <option value="5.4">5.4+ []</option>
+                <option value="5.3">5.3- array()</option>
+            </select>
+    
+            <label for="tabStyle">Tab</label>
+            <select id="tabStyle" class="marginRight10">
+                <option value="\t">\t</option>
+                <option value=" ">1 space</option>
+                <option value="  ">2 spaces</option>
+                <option value="   ">3 spaces</option>
+                <option value="    " selected>4 spaces</option>
+            </select>
+    
+            <button class="marginRight10" id=go type="submit">Go</button>
+            <button class="button-clear" type="reset">Clear</button>
+        </form>
     </div>
-
-    <form action="#" id="form">
-        <table>
-            <tr>
-                <td><textarea placeholder="write / paste your JSON here" class="" rows="30" cols="75" id="input"></textarea></td>
-                <td><textarea class="" rows="30" cols="75" id="output"></textarea></td>
-            </tr>
-        </table>
-
-        <label for="arrayStyle">Array Format</label>
-        <select id="arrayStyle" class="">
-            <option value="5.4">5.4+ []</option>
-            <option value="5.3">5.3- array()</option>
-        </select>
-
-        <label for="tabStyle">Tab</label>
-        <select id="tabStyle" class="">
-            <option value="\t">\t</option>
-            <option value=" ">1 space</option>
-            <option value="  ">2 spaces</option>
-            <option value="   ">3 spaces</option>
-            <option value="    " selected>4 spaces</option>
-        </select>
-
-        <button class="" id=go type="submit">Go</button>
-        <button class="" type="reset">Clear</button>
-    </form>
 
     <script src="source.js" type="application/javascript"></script>
     <script type="application/javascript">
