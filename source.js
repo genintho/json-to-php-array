@@ -15,6 +15,7 @@ var JSONtoArray = ( function(){
 
         // Pasting stuff will trigger a submit
         document.addEventListener( 'paste', function( event ){
+            event.preventDefault();
             // Make sure we are pasting text
             if( event.clipboardData.types.indexOf( 'text/plain' ) === -1 &&
                 event.clipboardData.types.indexOf( 'application/json' ) === -1
@@ -153,8 +154,8 @@ var JSONtoArray = ( function(){
     }
 
     return function init(){
-        inputForm  = null;document.getElementById( 'input' );
-        outputForm = null;document.getElementById( 'output' );
+        inputForm  = document.getElementById( 'input' );
+        outputForm = document.getElementById( 'output' );
         bindEvent();
     };
 })();
